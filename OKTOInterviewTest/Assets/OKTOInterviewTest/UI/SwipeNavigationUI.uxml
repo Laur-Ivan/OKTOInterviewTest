@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="ParentContainer" style="flex-grow: 1; flex-basis: 0;">
+        <ui:VisualElement name="ContentContainer" style="flex-grow: 1; flex-basis: 0;">
+            <ui:ScrollView name="DanceClip" style="flex-grow: 1; flex-basis: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="BannerContainer" style="width: 100%; height: 10%; flex-direction: row;">
+            <ui:Button text="Home" display-tooltip-when-elided="true" name="HomeButton" style="flex-shrink: 1; flex-grow: 1; flex-basis: 0; font-size: 100px; white-space: normal;" />
+            <ui:Button text="Profile" display-tooltip-when-elided="true" name="ProfileButton" style="flex-shrink: 1; flex-grow: 1; flex-basis: 0; font-size: 100px; white-space: normal;" />
+            <ui:Button text="Store" display-tooltip-when-elided="true" name="StoreButton" style="flex-shrink: 1; flex-grow: 1; flex-basis: 0; font-size: 100px; white-space: normal;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
