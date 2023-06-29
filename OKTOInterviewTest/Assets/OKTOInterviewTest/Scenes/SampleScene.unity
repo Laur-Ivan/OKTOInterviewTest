@@ -2005,15 +2005,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301444009}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1be7d0d0f51992f4eb47c5ea97beeea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentContainer: {fileID: 998357149}
-  DanceClip: {fileID: 9197481963319205126, guid: 5e58d032ada2cf043afea90d8719f48c, type: 3}
-  numberOfDanceClips: 3
+  parentContainer: {fileID: 998357149}
+  danceClipTemplate: {fileID: 9197481963319205126, guid: 5eb75d97b3526984681abe4bf28a0f57, type: 3}
+  numberOfDanceClips: 1
   contentContainerName: ContentContainer
+  characterRenderTextures:
+  - {fileID: 8400000, guid: f714dd368e8313147838d300d53093cd, type: 2}
+  - {fileID: 8400000, guid: e8e1ce0617d87844ebd78bf5af8a48f5, type: 2}
+  - {fileID: 8400000, guid: c59972ee3dfcd0c449e6fd41c66ee4cd, type: 2}
+  backgroundImages:
+  - {fileID: 2800000, guid: e27f3b4fd7063254db4e90c00be116a9, type: 3}
+  - {fileID: 2800000, guid: aaf58dab58b489c45b87d5211b1ccbe7, type: 3}
+  - {fileID: 2800000, guid: 5de9d0ce8ad32c6489fc788fcc4d1830, type: 3}
 --- !u!114 &1301444012
 MonoBehaviour:
   m_ObjectHideFlags: 0

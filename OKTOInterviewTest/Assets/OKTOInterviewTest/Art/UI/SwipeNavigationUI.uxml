@@ -7,9 +7,6 @@
             <ui:VisualElement name="DanceClip2" style="background-image: url(&apos;project://database/Assets/OKTOInterviewTest/Art/Backgrounds/background_02.png?fileID=2800000&amp;guid=aaf58dab58b489c45b87d5211b1ccbe7&amp;type=3#background_02&apos;); width: 100%; height: auto;">
                 <ui:VisualElement name="CharacterRenderTexture" style="justify-content: center; align-items: stretch; background-image: url(&apos;project://database/Assets/OKTOInterviewTest/RenderTextures/DanceClipRenderTexture_02.renderTexture?fileID=8400000&amp;guid=e8e1ce0617d87844ebd78bf5af8a48f5&amp;type=2#DanceClipRenderTexture_02&apos;); width: auto; height: auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0; position: relative; left: 0; top: 0; right: 0; bottom: 0;" />
             </ui:VisualElement>
-            <ui:VisualElement name="DanceClip3" style="background-image: url(&apos;project://database/Assets/OKTOInterviewTest/Art/Backgrounds/background_03.png?fileID=2800000&amp;guid=5de9d0ce8ad32c6489fc788fcc4d1830&amp;type=3#background_03&apos;); width: 100%; height: auto;">
-                <ui:VisualElement name="CharacterRenderTexture" style="justify-content: center; align-items: stretch; background-image: url(&apos;project://database/Assets/OKTOInterviewTest/RenderTextures/DanceClipRenderTexture_03.renderTexture?fileID=8400000&amp;guid=c59972ee3dfcd0c449e6fd41c66ee4cd&amp;type=2#DanceClipRenderTexture_03&apos;); width: auto; height: auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0; position: relative; left: 0; top: 0; right: 0; bottom: 0;" />
-            </ui:VisualElement>
         </ui:ScrollView>
         <ui:VisualElement name="BannerContainer" style="width: 100%; height: 10%; flex-direction: row;">
             <ui:Button text="Home" display-tooltip-when-elided="true" name="HomeButton" style="flex-shrink: 1; flex-grow: 1; flex-basis: 0; font-size: 100px; white-space: normal;" />
