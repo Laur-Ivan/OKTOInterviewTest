@@ -73,8 +73,6 @@ public class DanceClipSpawner : MonoBehaviour
             camera.transform.position = cameraBasePosition + cameraOffset;
             camera.cullingMask = 1 << layer;
             camera.targetTexture = characterRenderTextures[i];
-            
-            Debug.Log($"Spawning character {character.gameObject.name} and camera {camera.gameObject.name}");
         }
     }
     

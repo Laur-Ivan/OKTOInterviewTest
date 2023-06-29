@@ -481,6 +481,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 998357149}
-  swipeThreshold: 100
-  swipeSmoothTime: 0.2
+  swipeSmoothTime: 0.75
   contentContainerName: ContentContainer
