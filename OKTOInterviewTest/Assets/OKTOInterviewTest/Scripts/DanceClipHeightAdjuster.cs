@@ -21,15 +21,15 @@ public class DanceClipHeightAdjuster : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         
-        ScrollView scrollView = uiDocument.rootVisualElement.Q<ScrollView>("ContentContainer");
+        ScrollView contentContainer = uiDocument.rootVisualElement.Q<ScrollView>("ContentContainer");
 
-        if (scrollView == null)
+        if (contentContainer == null)
         {
             Debug.LogError("ScrollView 'ContentContainer' not found");
             yield break;
         }
 
-        foreach (VisualElement danceClip in scrollView.contentContainer.Children())
+        foreach (VisualElement danceClip in contentContainer.contentContainer.Children())
         {
             if (danceClip == null)
             {

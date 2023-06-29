@@ -15,8 +15,18 @@ public class DanceClipSpawner : MonoBehaviour
 
     [SerializeField] private Texture2D[] backgroundImages;
     
+    [SerializeField] private GameObject[] characterPrefabs;
+    [SerializeField] private Camera[] cameraPrefabs;
+    [SerializeField] private string[] layerNames;
+    
+    [SerializeField] private Vector3 characterBasePosition = new Vector3(5, 0, -6);
+    [SerializeField] private Vector3 cameraBasePosition = new Vector3(5, 0, -10);
+    [SerializeField] private float positionOffset = 5f;
+
+    
     void Start()
     {
+        SpawnCharactersAndCameras();
         SpawnDanceClips();
     }
 
@@ -24,6 +34,11 @@ public class DanceClipSpawner : MonoBehaviour
     {
         ScrollView contentContainer = parentContainer.rootVisualElement.Q<ScrollView>(contentContainerName);
 
+        if (contentContainer == null)
+        {
+            Debug.LogError("ScrollView 'ContentContainer' not found");
+        }
+        
         for (int i = 0; i < numberOfDanceClips; i++)
         {
             VisualElement danceClip = new VisualElement();
@@ -39,6 +54,46 @@ public class DanceClipSpawner : MonoBehaviour
             danceClip.Add(characterContainer);
 
             contentContainer.Add(danceClip);
+        }
+    }
+
+    private void SpawnCharactersAndCameras()
+    {
+        for (int i = 0; i < numberOfDanceClips; i++)
+        {
+            GameObject character = Instantiate(characterPrefabs[i]);
+            Vector3 characterOffset = new Vector3(i * positionOffset, 0, 0);
+            character.transform.position = characterBasePosition + characterOffset;
+            
+            int layer = LayerMask.NameToLayer(layerNames[i]);
+            SetLayerRecursively(character, layer);
+
+            Camera camera = Instantiate(cameraPrefabs[i]);
+            Vector3 cameraOffset = new Vector3(i * positionOffset, 0, 0);
+            camera.transform.position = cameraBasePosition + cameraOffset;
+            camera.cullingMask = 1 << layer;
+            camera.targetTexture = characterRenderTextures[i];
+            
+            Debug.Log($"Spawning character {character.gameObject.name} and camera {camera.gameObject.name}");
+        }
+    }
+    
+    private void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        if (null == obj)
+        {
+            return;
+        }
+
+        obj.layer = newLayer;
+   
+        foreach (Transform child in obj.transform)
+        {
+            if (null == child)
+            {
+                continue;
+            }
+            SetLayerRecursively(child.gameObject, newLayer);
         }
     }
 }
