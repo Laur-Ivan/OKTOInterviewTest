@@ -20,7 +20,7 @@ public class DanceClipHeightAdjuster : MonoBehaviour
     IEnumerator AdjustHeight()
     {
         yield return new WaitForEndOfFrame();
-
+        
         ScrollView scrollView = uiDocument.rootVisualElement.Q<ScrollView>("ContentContainer");
 
         if (scrollView == null)

@@ -5,41 +5,39 @@ using UnityEngine.UIElements;
 
 public class DanceClipSpawner : MonoBehaviour
 {
-    [SerializeField] private UIDocument parentContainer; // The UIDocument that holds our whole UI
-    [SerializeField] private VisualTreeAsset danceClipTemplate; // The UXML asset for a single DanceClip
+    [SerializeField] private UIDocument parentContainer;
     [SerializeField] private int numberOfDanceClips = 3;
 
     [SerializeField] private string contentContainerName = "ContentContainer";
     [SerializeField] private string characterRenderTextureName = "CharacterRenderTexture";
-    
+
     [SerializeField] private RenderTexture[] characterRenderTextures;
 
-    // Reference to your background images for the DanceClips
     [SerializeField] private Texture2D[] backgroundImages;
-
+    
     void Start()
     {
-        // Get the ContentContainer
+        SpawnDanceClips();
+    }
+
+    private void SpawnDanceClips()
+    {
         ScrollView contentContainer = parentContainer.rootVisualElement.Q<ScrollView>(contentContainerName);
 
-        // Loop for the number of DanceClips you want to create
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < numberOfDanceClips; i++)
         {
-            // Create a new DanceClip from the template
-            VisualElement danceClip = danceClipTemplate.CloneTree().contentContainer;
-
-            // Get the CharacterRenderTexture VisualElement in the DanceClip
-            VisualElement characterContainer = danceClip.Q<VisualElement>(characterRenderTextureName);
-            Debug.Log($"Character container {characterContainer}");
-            
-            // Set the background image of the DanceClip to one of your textures
+            VisualElement danceClip = new VisualElement();
+            danceClip.name = $"DanceClip{i}";
+            danceClip.style.flexGrow = 1;
             danceClip.style.backgroundImage = new StyleBackground(backgroundImages[i]);
-
-            // Set the background image of the CharacterRenderTexture to one of your RenderTextures
-            Debug.Log($"Character render texture {characterRenderTextures[i]}");
+            
+            VisualElement characterContainer = new VisualElement();
+            characterContainer.name = characterRenderTextureName;
+            characterContainer.style.flexGrow = 1;
             characterContainer.style.backgroundImage = new StyleBackground(Background.FromRenderTexture(characterRenderTextures[i]));
 
-            // Add the DanceClip to the ContentContainer
+            danceClip.Add(characterContainer);
+
             contentContainer.Add(danceClip);
         }
     }
