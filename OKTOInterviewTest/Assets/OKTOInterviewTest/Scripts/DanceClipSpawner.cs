@@ -26,6 +26,12 @@ public class DanceClipSpawner : MonoBehaviour
     
     void Start()
     {
+        if (numberOfDanceClips > characterPrefabs.Length)
+        {
+            Debug.Log($"Trying to spawn more dance clips than possible, spawning only as many as we have");
+            numberOfDanceClips = characterPrefabs.Length;
+        }
+    
         SpawnCharactersAndCameras();
         SpawnDanceClips();
     }
